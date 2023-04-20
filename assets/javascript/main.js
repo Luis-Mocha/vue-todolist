@@ -39,7 +39,10 @@ createApp({
                 this.error = true
             }
         },
-        
+
+        cancelTask(i) {
+            this.todos.splice(i, 1)
+        },
         
     }
 }).mount('#app')
