@@ -23,6 +23,7 @@
         <div class="container py-3">
             <h1 class="text-center">Boolean ToDo List</h1>
 
+            <!-- sezione input -->
             <div class="text-center">
                 <input type="text" v-model="testoInput" @KeyUp.enter="creaTodo">
                 <button @click="creaTodo">Crea ToDo</button>
@@ -30,13 +31,15 @@
                     La task deve contenere alemeno 5 caratteri.
                 </p>
             </div>
-    
+            
+            <!-- sezione tasks -->
             <div class="my-5">
-                <div v-for="(elem, index) in todos" :key="index" class="rounded p-2 border-bottom d-flex justify-content-between align-items-center" :class=" (index % 2 == 0) ? 'bg-primary text-light' : 'bg-white border'"> 
-                    <p class="m-1">{{index + 1}} ⋄ {{elem.text}}</p>
+                <div v-for="(elem, index) in todos" :key="index" class="rounded text-light p-2 border-bottom d-flex justify-content-between align-items-center"  :class=" (elem.done ===  true ) ? 'bg-success' : 'bg-info'  "> 
+                    <p class="m-1" :class=" (elem.done ===  true ) ? 'text-decoration-line-through' : '' ">{{index + 1}} ⋄ {{elem.text}}</p>
                     <i role="button" class="fa-solid fa-xmark" @click="cancelTask(index)"></i>
                 </div>
 
+                <!-- alternativa task finite -->
                 <div v-if="todos.length == 0" class="rounded p-2 border-bottom d-flex justify-content-between align-items-center" :class=" (index % 2 == 0) ? 'bg-primary' : 'bg-white'"> 
                     <p class="m-1">Non hai niente da fare 😘</p>
                 </div>
