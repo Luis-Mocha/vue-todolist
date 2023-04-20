@@ -26,7 +26,7 @@
             <!-- sezione input -->
             <div class="text-center m-3">
                 <input type="text" v-model="testoInput" @KeyUp.enter="creaTodo">
-                <button @click="creaTodo">Crea ToDo</button>
+                <button @click="creaTodo" class="btn btn-success ms-3 m-0">Aggiungi Task</button>
                 <p v-if=" error " class="alert alert-danger">
                     La task deve contenere alemeno 5 caratteri.
                 </p>
