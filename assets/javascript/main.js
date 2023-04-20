@@ -17,14 +17,28 @@ createApp({
                     text: 'Fare il bucato',
                     done: false
                 }
-            ]
-
-            
+            ],
+            testoInput: '',
+            error: false,     
         }
     },
 
     methods: {
         // funzioni Vue3
+        creaTodo() {
+            if (this.testoInput != '' && this.testoInput.length >= 5) {
+                let newObject = {}
+
+                newObject = {text: this.testoInput, done: false}
+
+                this.todos.unshift(newObject)
+
+                this.testoInput = ''
+                this.error = false
+            } else {
+                this.error = true
+            }
+        },
         
         
     }
