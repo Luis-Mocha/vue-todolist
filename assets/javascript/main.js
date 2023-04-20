@@ -26,7 +26,7 @@ createApp({
     methods: {
         // funzioni Vue3
         creaTodo() {
-            if (this.testoInput != '' && this.testoInput.length >= 5) {
+            if (this.testoInput != '' && this.testoInput.length >= 5 && this.testoInput.length <= 20 ) {
                 let newObject = {}
 
                 newObject = {text: this.testoInput, done: false}
