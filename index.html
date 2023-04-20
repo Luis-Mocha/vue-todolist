@@ -20,8 +20,22 @@
     <div id="app">
         <!-- il codice html va qui -->
 
+        <div class="container py-3">
+            <h1 class="text-center">Boolean ToDo List</h1>
 
-       
+            <div class="text-center">
+                <input type="text" v-model="testoInput" >
+                <button class="">Crea ToDo</button>
+            </div>
+    
+            <div class="my-5">
+    
+                <div v-for="(elem, index) in todos" :key="index" class="rounded p-2 border-bottom d-flex justify-content-between align-items-center" :class=" (index % 2 == 0) ? 'bg-primary text-light' : 'bg-white border'"> 
+                    <p class="m-1">{{index + 1}} - {{elem.text}}</p>
+                    <i role="button" class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+        </div>
        
     </div>
 
