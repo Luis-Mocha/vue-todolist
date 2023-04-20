@@ -16,11 +16,22 @@ createApp({
                 {
                     text: 'Fare il bucato',
                     done: false
+                },
+                {
+                    text: 'Preparare la cena',
+                    done: true
                 }
             ],
             testoInput: '',
-            error: false,     
+            error: false,
+            doneTasks: 0,
+            toDoTasks: 0, 
         }
+    },
+
+    created() { 
+        //cicli di vita dei componenti di applicazioni Vue. Vengono eseguite azioni al caricamento dei componenti
+        this.countTasks()
     },
 
     methods: {
@@ -46,7 +57,26 @@ createApp({
         
         checkTask(i) {
             this.todos[i].done = true
-        }
+        },
+
+        countTasks() {
+            this.doneTasks = 0
+            this.toDoTasks = 0
+            
+            for (const key in this.todos) {
+
+                if (this.todos[key].done === true) {
+                    
+                    this.doneTasks++ 
+                }
+
+                if (this.todos[key].done === false) {
+                    this.toDoTasks++ 
+                }
+
+                console.log(this.todos[key].done)
+            }
+        },
         
     }
 }).mount('#app')
