@@ -38,7 +38,7 @@
                     <p class="m-1" :class=" (elem.done ===  true ) ? 'text-decoration-line-through' : '' ">{{index + 1}} ⋄ {{elem.text}}</p>
                     <div>
                         <i v-if="elem.done === false " role="button" class="fa-solid fa-check fs-5 mx-2" @click="checkTask(index)"></i>
-                        <i v-if="elem.done === true " role="button" class="fa-solid fa-xmark text-danger fs-5 mx-2" @click="cancelTask(index)"></i>
+                        <i  role="button" class="fa-solid fa-trash-can text-danger mx-2" @click="cancelTask(index)"></i>
                     </div>
                     
                 </div>
