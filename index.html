@@ -21,10 +21,10 @@
         <!-- il codice html va qui -->
 
         <div class="container py-3">
-            <h1 class="text-center">Boolean ToDo List</h1>
+            <h1 class="text-center text-light text-uppercase my-1">Boolean ToDo List</h1>
 
             <!-- sezione input -->
-            <div class="text-center">
+            <div class="text-center m-3">
                 <input type="text" v-model="testoInput" @KeyUp.enter="creaTodo">
                 <button @click="creaTodo">Crea ToDo</button>
                 <p v-if=" error " class="alert alert-danger">
@@ -34,9 +34,13 @@
             
             <!-- sezione tasks -->
             <div class="my-5">
-                <div v-for="(elem, index) in todos" :key="index" class="rounded text-light p-2 border-bottom d-flex justify-content-between align-items-center"  :class=" (elem.done ===  true ) ? 'bg-success' : 'bg-info'  "> 
+                <div v-for="(elem, index) in todos" :key="index" class="rounded text-light p-2 border-bottom d-flex justify-content-between align-items-center"  :class="(elem.done ===  true ) ? 'bg-success' : 'bg-info text-black' "> 
                     <p class="m-1" :class=" (elem.done ===  true ) ? 'text-decoration-line-through' : '' ">{{index + 1}} ⋄ {{elem.text}}</p>
-                    <i role="button" class="fa-solid fa-xmark" @click="cancelTask(index)"></i>
+                    <div>
+                        <i v-if="elem.done === false " role="button" class="fa-solid fa-check fs-5 mx-2" @click="checkTask(index)"></i>
+                        <i v-if="elem.done === true " role="button" class="fa-solid fa-xmark text-danger fs-5 mx-2" @click="cancelTask(index)"></i>
+                    </div>
+                    
                 </div>
 
                 <!-- alternativa task finite -->

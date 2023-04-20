@@ -44,5 +44,9 @@ createApp({
             this.todos.splice(i, 1)
         },
         
+        checkTask(i) {
+            this.todos[i].done = true
+        }
+        
     }
 }).mount('#app')
